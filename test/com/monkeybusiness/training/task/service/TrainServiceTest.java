@@ -27,7 +27,6 @@ public class TrainServiceTest {
     Train train1 = new Train(destination, trainNumber, localTime, seatCount);
     Train[] trains = {train1, train1};
     List<Train> expected = Arrays.asList(trains);
-
     List<Train> actual = service.findTrainsThatArrivesAt(expected, destination);
     assertEquals(actual, expected);
   }
@@ -41,7 +40,6 @@ public class TrainServiceTest {
     Train train1 = new Train(destination, trainNumber, localTime, seatCount);
     Train[] trains = {train1, train1};
     List<Train> expected = Arrays.asList(trains);
-    TrainService service = new TrainService();
     List<Train> actual = service.findTrainsThatArrivesAtAndDepartAfter(expected, destination, localTime.minusSeconds(1));
     assertEquals(actual, expected);
   }
