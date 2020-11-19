@@ -17,7 +17,7 @@ public class TrainService {
     List<Train> trainList = new LinkedList<>();
 
     for (Train train : trains) {
-      if (train.getdestination().equals(destination) && train.getDepartureTime().compareTo(time) > 0) {
+      if (train.getDestination().equals(destination) && train.getDepartureTime().compareTo(time) > 0) {
         trainList.add(train);
       }
     }

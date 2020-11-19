@@ -1,6 +1,7 @@
 package com.monkeybusiness.training.task.service;
 
 import com.monkeybusiness.training.task.entity.Train;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.LocalTime;
@@ -10,6 +11,12 @@ import java.util.List;
 import static org.testng.Assert.*;
 
 public class TrainServiceTest {
+  TrainService service;
+
+  @BeforeClass
+  public void setUp() {
+    service = new TrainService();
+  }
 
   @Test
   public void FindTrainsThatArrivesAtTest() {
@@ -20,7 +27,7 @@ public class TrainServiceTest {
     Train train1 = new Train(destination, trainNumber, localTime, seatCount);
     Train[] trains = {train1, train1};
     List<Train> expected = Arrays.asList(trains);
-    TrainService service = new TrainService();
+
     List<Train> actual = service.findTrainsThatArrivesAt(expected, destination);
     assertEquals(actual, expected);
   }

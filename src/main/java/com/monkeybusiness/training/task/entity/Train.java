@@ -19,19 +19,19 @@ public class Train {
     this.seatsCount = seatsCount;
   }
 
-  public String getdestination() {
+  public String getDestination() {
     return destination;
   }
 
-  public void setdestination(String destination) {
+  public void setDestination(String destination) {
     this.destination = destination;
   }
 
-  public int getTrainNumer() {
+  public int getTrainNumber() {
     return trainNumber;
   }
 
-  public void setTrainNumer(int trainNumber) {
+  public void setTrainNumber(int trainNumber) {
     this.trainNumber = trainNumber;
   }
 
@@ -50,6 +50,7 @@ public class Train {
   public void setSeatsCount(int seatsCount) {
     this.seatsCount = seatsCount;
   }
+
 
   @Override
   public String toString() {
