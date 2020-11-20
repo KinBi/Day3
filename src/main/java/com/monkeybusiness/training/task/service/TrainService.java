@@ -1,27 +1,31 @@
 package com.monkeybusiness.training.task.service;
 
+import com.monkeybusiness.training.task.entity.Destination;
+import com.monkeybusiness.training.task.entity.RailwayStation;
 import com.monkeybusiness.training.task.entity.Train;
 
 import java.time.LocalTime;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Arrays;
 
 public class TrainService {
-  public List<Train> findTrainsThatArrivesAt(List<Train> trains, String destination) {
-    List<Train> trainList = findTrainsThatArrivesAtAndDepartAfter(trains, destination, LocalTime.MIN);
+  public Train[] findTrainsThatArrivesAt(RailwayStation railvayStation, Destination destination) {
+    Train[] trainList = findTrainsThatArrivesAtAndDepartAfter(railvayStation, destination, LocalTime.MIN);
 
     return trainList;
   }
 
-  public List<Train> findTrainsThatArrivesAtAndDepartAfter(List<Train> trains, String destination, LocalTime time) {
-    List<Train> trainList = new LinkedList<>();
+  public Train[] findTrainsThatArrivesAtAndDepartAfter(RailwayStation railvayStation, Destination destination, LocalTime time) {
+    Train[] trains = railvayStation.getTrains();
+    Train[] trainList = new Train[trains.length];
 
-    for (Train train : trains) {
-      if (train.getDestination().equals(destination) && train.getDepartureTime().compareTo(time) > 0) {
-        trainList.add(train);
+    int count = 0;
+    for (int i = 0; i < trains.length; i++) {
+      if (trains[i].getDestination() == destination && trains[i].getDepartureTime().compareTo(time) > 0) {
+        trainList[count] = trains[i];
+        count++;
       }
     }
-
-    return trainList;
+    Train[] result = Arrays.copyOf(trainList, count);
+    return result;
   }
 }
