@@ -38,7 +38,7 @@ public class RailwayStation {
 
   @Override
   public String toString() {
-    final StringBuilder sb = new StringBuilder("RailvayStation{");
+    final StringBuilder sb = new StringBuilder("RailwayStation{");
     sb.append("trains=").append(Arrays.toString(trains));
     sb.append('}');
     return sb.toString();

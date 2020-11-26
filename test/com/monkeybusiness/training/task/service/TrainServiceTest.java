@@ -27,7 +27,7 @@ public class TrainServiceTest {
   }
 
   @Test
-  public void FindTrainsThatArrivesAtTest() {
+  public void findTrainsThatArrivesAtTest() {
     Train train1 = new Train(destination, trainNumber, localTime, seatCount);
     Train[] expected = {train1, train1};
 
@@ -38,7 +38,7 @@ public class TrainServiceTest {
   }
 
   @Test
-  public void FindTrainsThatArrivesAtAndDepartAfterTest() {
+  public void findTrainsThatArrivesAtAndDepartAfterTest() {
     Train train1 = new Train(destination, trainNumber, localTime, seatCount);
     Train[] expected = {train1, train1};
 
